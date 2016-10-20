@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hrp.dao.UserDao;
+import com.hrp.model.Answer;
 import com.hrp.model.User;
 
 @Service("UserService")
@@ -17,6 +18,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserDao userDao;
 	
+	@Override
 	 public List<User> loginUser(String username){
 		return userDao.loginUser(username);
 	}
@@ -24,5 +26,17 @@ public class UserServiceImpl implements UserService {
 	 public void registerUser(User user){
 		 userDao.registerUser(user);
 	 }
+
+	@Override
+	public Long isUser(String email) {
+		return userDao.isUser(email);
+	}
+
+	@Override
+	public Boolean checkAnswer(Answer answer) {
+		
+		
+		return userDao.checkAnswer(answer) ;
+	}
 
 }
