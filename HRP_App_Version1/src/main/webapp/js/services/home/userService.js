@@ -15,4 +15,4 @@ hrpApp.service("userService", function($http) {
 				}
 			});
 		};
-});
+}); 

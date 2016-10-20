@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>HR Platform</title>
+<title>HR Platform</title> 
 
 <meta charset="UTF-8">
 

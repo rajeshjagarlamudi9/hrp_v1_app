@@ -17,7 +17,7 @@ hrpApp.controller('registrationController',function($scope,$location,$http,userS
     
     $scope.showRegisterForm2=function()
     {
-    	$scope.registerform1=true;
+    	$scope.registerform1=true; 
     	$scope.registerform2=false;
         $scope.registerform3=true;
     }

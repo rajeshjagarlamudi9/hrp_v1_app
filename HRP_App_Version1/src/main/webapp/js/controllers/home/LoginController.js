@@ -6,7 +6,7 @@ hrpApp.controller('loginController',function($scope,$location,$http,userService)
 	
 	$scope.loginform1=false;
 	$scope.loginform2=true;
-    $scope.loginform3=true;
+    $scope.loginform3=true; 
     $scope.loginform4=true;
     
     $scope.showLoginForm1=function()

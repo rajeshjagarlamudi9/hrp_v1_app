@@ -23,5 +23,5 @@ hrpApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
                 url: "/register",
                 templateUrl: "views/home/Registration.html",
                 controller:'registrationController'
-            })
+            }) 
 }]);
