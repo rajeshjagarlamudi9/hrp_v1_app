@@ -13,25 +13,38 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "questions")
 public class Questions {
-	
+
 	@Id
 	@GeneratedValue
-	@Column(name="id")
+	@Column(name = "id")
 	private Long id;
-	
-	@Column(name="question")
+
+	@Column(name = "question")
 	private String question;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_date")
+	@Column(name = "created_date")
 	private Date createdDate;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="updated_date")
+	@Column(name = "updated_date")
 	private Date updatedDate;
-	
-	@Column(name="deleted_yn")
+
+	@Column(name = "deleted_yn")
 	private Boolean deletedYn;
+
+	public Questions() {
+		super();
+	}
+
+	public Questions(Questions questin) {
+		super();
+		this.id = questin.id;
+		this.question = questin.question;
+		this.createdDate = questin.createdDate;
+		this.updatedDate = questin.updatedDate;
+		this.deletedYn = questin.deletedYn;
+	}
 
 	public Long getId() {
 		return id;
@@ -72,7 +85,5 @@ public class Questions {
 	public void setDeletedYn(Boolean deletedYn) {
 		this.deletedYn = deletedYn;
 	}
-	
-	
 
 }

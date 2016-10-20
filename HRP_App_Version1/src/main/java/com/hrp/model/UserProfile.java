@@ -3,10 +3,13 @@ package com.hrp.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,7 +22,12 @@ public class UserProfile {
 	@GeneratedValue
 	Integer id;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "qualification_id")
+	private Qualification qualification;
 	
+	@JoinColumn(name = "experience")
+	private int experience;
 	
 	@Column
 	private String first_name;
@@ -43,6 +51,24 @@ public class UserProfile {
 	
 	@Column
     private Integer deleted_yn;
+	
+	public UserProfile(){
+		super();
+	}
+	
+	public UserProfile(UserProfile userProfile){
+		super();
+		this.id = userProfile.id;
+		this.qualification = userProfile.qualification;
+		this.experience = userProfile.experience;
+		this.first_name = userProfile.first_name;
+		this.middle_name = userProfile.middle_name;
+		this.last_name = userProfile.last_name;
+		this.mobile = userProfile.mobile;
+		this.created_date = userProfile.created_date;
+		this.updated_date = userProfile.updated_date;
+		this.deleted_yn = userProfile.deleted_yn;
+	}
     
 	public Integer getId() {
 		return id;
