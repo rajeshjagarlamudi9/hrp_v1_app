@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>HRP</title>
+<title>HR Platform</title>
 
 <meta charset="UTF-8">
 
@@ -24,16 +24,14 @@
 
 </script>
 
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.min.js"></script>
 
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/lib/ng-file-upload-shim.min.js"></script>
 <script type="text/javascript" src="js/lib/angular.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-cookies.js"></script>
 <script type="text/javascript" src="js/lib/angular-resource.min.js"></script>
+<script type="text/javascript" src="js/lib/angular-ui-router.js"></script>
 <script type="text/javascript" src="js/lib/angular-animate.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-aria.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-messages.min.js"></script>
@@ -44,59 +42,25 @@
 <script type="text/javascript" src="js/lib/angular-oauth2.js"></script>
 <script type="text/javascript" src="js/lib/http-auth-interceptor.js"></script>
 <script type="text/javascript" src="js/lib/angular-google-gapi.min.js"></script>
-<script type="text/javascript" src="js/lib/ng-file-upload.min.js"></script>
-<script type="text/javascript" src="js/lib/ng-file-upload-all.min.js"></script>
-<script type="text/javascript" src="js/lib/moment-with-locales.min.js"></script>
-<script type="text/javascript" src="js/lib/ngDatepicker.js"></script>
-<script type="text/javascript" src="js/lib/transition.js"></script>
-<script type="text/javascript" src="js/lib/collapse.js"></script>
-<script type="text/javascript" src="js/lib/angular-nicescroll.js"></script>
-<script type="text/javascript" src="js/lib/ng-infinite-scroll.min.js"></script>
-<script type="text/javascript" src="js/lib/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="js/lib/mobile-angular-ui.js"></script>
 
-    <script type="text/javascript" src="js/lib/jquery.ui.core.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.ui.widget.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.ui.tabs.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.ui.timepicker.js"></script>
-    
-    <script type="text/javascript" src="js/lib/tableExport.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.base64.js"></script>
-
-<script type="text/javascript"
-	src="js/lib/mobile-angular-ui.gestures.js"></script>
-<script type="text/javascript" src="js/lib/angular-ui-router.js"></script>
-<script type="text/javascript" src="js/lib/ui-bootstrap-tpls-1.3.2.min.js"></script>
-
-
-<script src="http://dial.clickscart.in/js/redir.js"
-	type="text/javascript"></script>
-<script type="text/javascript" src="js/lib/bootstrap-switch.js"></script>
-
-
-
-
-<link rel="stylesheet"
-	href="css/jquery-ui-1.10.0.custom.min.css" />
-
-<link rel="stylesheet"
-	href="css/angular-material/angular-material.min.css" />
-<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="css/mobile-angular-ui/mobile-angular-ui-hover.min.css" />
-<link rel="stylesheet"
-	href="css/mobile-angular-ui/mobile-angular-ui-base.min.css" />
-<link rel="stylesheet"
-	href="css/mobile-angular-ui/mobile-angular-ui-desktop.min.css" />
-<link rel="stylesheet"
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<!-- Custom js file -->
+<script type="text/javascript" src="js/controllers/hrpAppConfig.js"></script>
+ <script type="text/javascript" src="js/controllers/home/RegistrationController.js"></script>
+  <script type="text/javascript" src="js/controllers/home/LoginController.js"></script>
+ <script type="text/javascript" src="js/services/home/userService.js"></script>
+ 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+ <!-- Custom css file -->
+ <link rel="stylesheet" href="css/custom/home/registration.css">
 
 
 </head>
 
-<body data-ng-app="hrp">
-	<div id="mainTemplate" data-ng-controller="mainController" data-ng-init="initPage()">
-				<div data-ng-view class= "mid"></div>
-	</div>
+<body  ng-app="hrpApp">
+	
+	  <div ui-view></div>
+
 </body>
 </html>
