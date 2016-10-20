@@ -9,5 +9,6 @@ public interface QuestionsService {
 	public void updateQuestion(Questions question);
 	public List<Questions> getTotalNumberOfQuestionsNotDeleted();
 	public Questions getQuestionById(Long id);
-	public void deleteQuestionById(Long id);	
+	public void deleteQuestionById(Long id);
+	public List<Questions> getAllQuestions();	
 }

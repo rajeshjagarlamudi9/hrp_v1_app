@@ -19,7 +19,8 @@ public class QuestionsDaoImpl extends AbstractDao implements QuestionsDao {
 		// TODO Auto-generated method stub
 		Session session = getSession();
 		Criteria criteria = session.createCriteria(Questions.class);
-		List<Questions> questionsList = (List<Questions>)criteria.add(Restrictions.eq("deleted_yn", false)).list();
+		@SuppressWarnings("unchecked")
+		List<Questions> questionsList = (List<Questions>)criteria.add(Restrictions.eq("deletedYn", false)).list();
 		return questionsList;
 	}
 
@@ -38,6 +39,12 @@ public class QuestionsDaoImpl extends AbstractDao implements QuestionsDao {
 		Query query = session.createQuery("update questions set deletedYn=true where id=:id").setParameter("id", id);
 		query.executeUpdate();
 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Questions> getAllQuestions() {
+		return getSession().createCriteria(Questions.class).add(Restrictions.eq("deletedYn", false)).list();
 	}
 
 }

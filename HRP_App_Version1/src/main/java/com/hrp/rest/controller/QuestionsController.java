@@ -85,5 +85,24 @@ public class QuestionsController {
 		}
 		return serviceStatus;
 	}
+	
+	@RequestMapping(value = "/getAllQuestions", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody ServiceStatus getAllQuestions() {
+		ServiceStatus serviceStatus = new ServiceStatus();
+
+		List<Questions> questionsList = questionsService.getAllQuestions();
+		
+		if(questionsList.size()>0 && questionsList != null){
+			serviceStatus.setResult(questionsList);
+			serviceStatus.setMessage("Successfully sent a list of questions.");
+			serviceStatus.setStatus("success");
+		}else {
+			serviceStatus.setMessage("Unable to retrieve a question list from the DB.");
+			serviceStatus.setStatus("failure");
+			serviceStatus.setResult(null);
+		}
+
+		return serviceStatus;
+	}
 
 }
