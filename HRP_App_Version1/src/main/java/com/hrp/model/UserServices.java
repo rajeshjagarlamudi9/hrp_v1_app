@@ -22,15 +22,15 @@ public class UserServices {
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id", updatable = false, insertable = false)
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "service_id", updatable = false, insertable = false)
+	@JoinColumn(name = "service_id")
 	private Services services;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "role_id", updatable = false, insertable = false)
+	@JoinColumn(name = "role_id")
 	private Role role;
 
 	@Column(name = "created_date", updatable = false)

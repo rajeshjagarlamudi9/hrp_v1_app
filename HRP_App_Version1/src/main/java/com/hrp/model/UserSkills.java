@@ -25,10 +25,16 @@ public class UserSkills {
 	@JoinColumn(name = "user_id", updatable = false, insertable = false)
 	private User user;
 
+	@Column(name="user_id")
+	private Long userId;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "skill_id", updatable = false, insertable = false)
 	private Skills skills;
 
+	@Column(name="skill_id")
+	private Long skillId;
+	
 	@Column(name = "created_date", updatable = false)
 	private Date createdDate;
 
@@ -50,6 +56,25 @@ public class UserSkills {
 		this.createdDate = userSkills.createdDate;
 		this.updatedDate = userSkills.updatedDate;
 		this.deletedYn = userSkills.deletedYn;
+	}
+
+	
+	
+	
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public Long getSkillId() {
+		return skillId;
+	}
+
+	public void setSkillId(Long skillId) {
+		this.skillId = skillId;
 	}
 
 	public Long getId() {
