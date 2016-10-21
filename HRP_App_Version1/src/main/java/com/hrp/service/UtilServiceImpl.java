@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hrp.dao.UtilDao;
 import com.hrp.model.Services;
+import com.hrp.model.Skills;
 @Service("utilService")
 @Transactional("transactionManager")
 public class UtilServiceImpl implements UtilService {
@@ -18,6 +19,11 @@ public class UtilServiceImpl implements UtilService {
 	@Override
 	public List<Services> getAllActiveServices() {
 		return utilDao.getAllActiveServices();
+	}
+
+	@Override
+	public List<Skills> getAllActiveSkills() {
+		return utilDao.getAllActiveSkills();
 	}
 
 }
