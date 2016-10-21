@@ -11,7 +11,7 @@ import com.hrp.model.Answer;
 import com.hrp.model.User;
 
 @Service("userService")
-@Transactional("trasactionManager")
+@Transactional("transactionManager")
 public class UserServiceImpl implements UserService {
 
 	@Autowired

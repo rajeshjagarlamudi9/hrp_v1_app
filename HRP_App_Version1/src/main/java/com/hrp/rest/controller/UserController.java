@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -140,19 +139,29 @@ public class UserController {
    
 	
    @RequestMapping(value ="/registerUser", method = RequestMethod.POST,
-			consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+		   consumes={"application/json"},produces={"application/json"})
 	public  ServiceStatus registerUser(@RequestBody  User user)  {
 		ServiceStatus serviceStatus=new ServiceStatus();
 			
-		try {
-					userService.registerUser(user);
-					serviceStatus.setStatus("success");	
-					serviceStatus.setMessage("User registered successfully.");
-			} catch (Exception e) {
-						e.printStackTrace();
-						serviceStatus.setStatus("failure");	
-						serviceStatus.setMessage("Registration failed.");
-			}
+		String emailRegex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+		
+			if(user !=null && (user.getEmail().trim().length() > 0 && user.getEmail().trim().length() <= 50) && (user.getEmail().matches(emailRegex)) 
+					&& (user.getUserProfile().getFirstName().trim().length() > 0)&& (user.getUserProfile().getLastName().trim().length() > 0)
+					&& ( user.getUserProfile().getMobile().trim().length() > 0) && ( user.getUserProfile().getMobile().matches("\\d{10}"))){
+		
+					try {
+									userService.registerUser(user);
+									serviceStatus.setStatus("success");	
+									serviceStatus.setMessage("User registered successfully.");
+							} catch (Exception e) {
+									e.printStackTrace();
+									serviceStatus.setStatus("failure");	
+									serviceStatus.setMessage("Registration failed.");
+							}
+				}else{
+								serviceStatus.setStatus("failure");	
+								serviceStatus.setMessage("Invalid details.");
+				}
 		
 		return serviceStatus;
 	}
