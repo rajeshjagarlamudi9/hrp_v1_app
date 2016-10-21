@@ -38,4 +38,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.checkAnswer(answer) ;
 	}
 
+	@Override
+	public User getUserById(Long id) {
+		return userDao.getUserById(id);
+	}
+
 }

@@ -14,5 +14,7 @@ public interface UserDao extends Dao {
 	public Long isUser(String email);
 	
 	Boolean checkAnswer(Answer answer);
+	
+	User getUserById(Long id);
 
 }

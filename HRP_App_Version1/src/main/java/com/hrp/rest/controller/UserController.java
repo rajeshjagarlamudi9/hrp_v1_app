@@ -156,5 +156,15 @@ public class UserController {
 		
 		return serviceStatus;
 	}
+   
+   @RequestMapping(value ="/getUserById/{id}", method = RequestMethod.GET)
+	public @ResponseBody ServiceStatus getUserById(@PathVariable("id") Long id) {
+		ServiceStatus serviceStatus = new ServiceStatus();
+		User user = userService.getUserById(id);
+		serviceStatus.setResult(user);
+		serviceStatus.setMessage("success");
+		return serviceStatus;
+		
+   }
 
 }
