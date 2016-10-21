@@ -1,13 +1,13 @@
 package com.hrp.rest.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +28,7 @@ import com.hrp.util.ServiceStatus;
 public class UserController {
 	
 	@Autowired
-	UserService userservice;
+	UserService userService;
 	
 	@Autowired
 	QuestionsService questionsService;
@@ -43,7 +43,7 @@ public class UserController {
 		try {
 			
 			if(!HrpUtil.isEmptyString(username)){
-               Long userId=userservice.isUser(username);
+               Long userId=userService.isUser(username);
 				if(userId!=null){
 					questions=questionsService.getTotalNumberOfQuestionsNotDeleted();
 							if(questions!=null&questions.size()>0){
@@ -96,7 +96,7 @@ public class UserController {
 							   &answer.getUser().getId()!=null
 							   &!HrpUtil.isEmptyString(answer.getAnswer())){
 						   validationFlag=true;
-						   loginFlag=userservice.checkAnswer(answer);
+						   loginFlag=userService.checkAnswer(answer);
 						   if(!loginFlag){
 							   break;
 							   }
@@ -139,19 +139,22 @@ public class UserController {
 	
    
 	
-	@RequestMapping(value ="/registerUser", method = RequestMethod.POST, 
-			produces={"application/json"})
-	public @ResponseBody ServiceStatus registerUser(@RequestBody User user) throws Exception {
-		ServiceStatus regstatus=new ServiceStatus();
-		regstatus.setMessage("success");
-		Date date = new Date();
-		user.setCreated_date(date);
-		try{
-			userservice.registerUser(user);
-		}catch(Exception e){
-			regstatus.setMessage(e.toString());
-		}
-		return regstatus;
+   @RequestMapping(value ="/registerUser", method = RequestMethod.POST,
+			consumes=MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	public  ServiceStatus registerUser(@RequestBody  User user)  {
+		ServiceStatus serviceStatus=new ServiceStatus();
+			
+		try {
+					userService.registerUser(user);
+					serviceStatus.setStatus("success");	
+					serviceStatus.setMessage("User registered successfully.");
+			} catch (Exception e) {
+						e.printStackTrace();
+						serviceStatus.setStatus("failure");	
+						serviceStatus.setMessage("Registration failed.");
+			}
+		
+		return serviceStatus;
 	}
 
 }
