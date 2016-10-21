@@ -24,10 +24,11 @@
 
 </script>
 
-<script type="text/javascript" src="js/lib/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="js/lib/jquery-3.1.1.js"></script> -->
+<!-- <script type="text/javascript" src="js/lib/jquery.min.js"></script> -->
+<script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
 
 <script type="text/javascript" src="js/lib/ng-file-upload-shim.min.js"></script>
+<!-- <script type="text/javascript" src="js/lib/angular.js"></script> -->
 <script type="text/javascript" src="js/lib/angular.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-cookies.js"></script>
@@ -36,6 +37,7 @@
 <script type="text/javascript" src="js/lib/angular-animate.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-aria.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-messages.min.js"></script>
+<script type="text/javascript" src="js/lib/angular-material.js"></script>
 <script type="text/javascript" src="js/lib/angular-material.min.js"></script>
 <script type="text/javascript" src="js/lib/angular-vs-repeat.js"></script>
 <script type="text/javascript" src="js/lib/b64.js"></script>
@@ -53,6 +55,7 @@
  
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/angular-material/angular-material.css">
  
  <!-- Custom css file -->
  <link rel="stylesheet" href="css/custom/home/registration.css">
