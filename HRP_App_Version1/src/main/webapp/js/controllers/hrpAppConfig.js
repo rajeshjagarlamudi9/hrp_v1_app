@@ -24,4 +24,9 @@ hrpApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, 
                 templateUrl: "views/home/Registration.html",
                 controller:'registrationController'
             }) 
+             .state('dashboard', {//nested state [Dashboard is the nested state of login state]
+                url: "/dashboard",
+                templateUrl: "views/home/Dashboard.html",
+                controller:'dashboardController'
+             })
 }]);

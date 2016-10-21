@@ -52,3 +52,9 @@ margin-top: 15px;
 	color:white;
  background: linear-gradient(to right, white,#78bcfe, white);
 }
+
+.gridListdemoBasicUsage md-grid-list {
+  margin: 8px; }
+  
+  .gridListdemoBasicUsage .green {
+  background: #b9f6ca; }

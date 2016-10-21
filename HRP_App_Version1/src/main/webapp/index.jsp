@@ -25,6 +25,7 @@
 </script>
 
 <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="js/lib/jquery-3.1.1.js"></script> -->
 
 <script type="text/javascript" src="js/lib/ng-file-upload-shim.min.js"></script>
 <script type="text/javascript" src="js/lib/angular.min.js"></script>
@@ -47,6 +48,7 @@
 <script type="text/javascript" src="js/controllers/hrpAppConfig.js"></script>
  <script type="text/javascript" src="js/controllers/home/RegistrationController.js"></script>
   <script type="text/javascript" src="js/controllers/home/LoginController.js"></script>
+  <script type="text/javascript" src="js/controllers/home/DashboardController.js"></script>
  <script type="text/javascript" src="js/services/home/userService.js"></script>
  
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
