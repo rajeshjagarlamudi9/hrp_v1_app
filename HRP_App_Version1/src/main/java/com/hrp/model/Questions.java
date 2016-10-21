@@ -7,13 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "questions")
 public class Questions {
-
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
@@ -22,11 +19,9 @@ public class Questions {
 	@Column(name = "question")
 	private String question;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_date")
 	private Date createdDate;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_date")
 	private Date updatedDate;
 
@@ -37,13 +32,13 @@ public class Questions {
 		super();
 	}
 
-	public Questions(Questions questin) {
+	public Questions(Long id, String question, Date createdDate, Date updatedDate, Boolean deletedYn) {
 		super();
-		this.id = questin.id;
-		this.question = questin.question;
-		this.createdDate = questin.createdDate;
-		this.updatedDate = questin.updatedDate;
-		this.deletedYn = questin.deletedYn;
+		this.id = id;
+		this.question = question;
+		this.createdDate = createdDate;
+		this.updatedDate = updatedDate;
+		this.deletedYn = deletedYn;
 	}
 
 	public Long getId() {
@@ -84,6 +79,12 @@ public class Questions {
 
 	public void setDeletedYn(Boolean deletedYn) {
 		this.deletedYn = deletedYn;
+	}
+
+	@Override
+	public String toString() {
+		return "Questions [id=" + id + ", question=" + question + ", createdDate=" + createdDate + ", updatedDate="
+				+ updatedDate + ", deletedYn=" + deletedYn + "]";
 	}
 
 }

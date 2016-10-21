@@ -1,9 +1,7 @@
 package com.hrp.model;
 
-
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,112 +9,148 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="user_profile")
+@Table(name = "user_profile")
 public class UserProfile {
-	
+
 	@Id
 	@GeneratedValue
 	Integer id;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
+
+	@ManyToOne
 	@JoinColumn(name = "qualification_id")
 	private Qualification qualification;
-	
+
 	@JoinColumn(name = "experience")
 	private int experience;
-	
-	@Column
-	private String first_name;
-	
-	@Column
-	private String middle_name;
-	
-	@Column
-	private String last_name;
-	
-	@Column
+
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "middle_name")
+	private String middleName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	@Column(name = "mobile")
 	private String mobile;
-	
-	@Column
-	@Temporal(TemporalType.DATE)
-	private Date created_date;
-	
-	@Column
-	@Temporal(TemporalType.DATE)
-    private Date updated_date;
-	
-	@Column
-    private Integer deleted_yn;
-	
-	public UserProfile(){
+
+	@Column(name = "created_date", updatable = false)
+	private Date createdDate;
+
+	@Column(name = "updated_date")
+	private Date updatedDate;
+
+	@Column(name = "deleted_yn")
+	private Boolean deletedYn;
+
+	public UserProfile() {
 		super();
 	}
-	
-	public UserProfile(UserProfile userProfile){
+
+	public UserProfile(Integer id, Qualification qualification, int experience, String firstName, String middleName,
+			String lastName, String mobile, Date createdDate, Date updatedDate, Boolean deletedYn) {
 		super();
-		this.id = userProfile.id;
-		this.qualification = userProfile.qualification;
-		this.experience = userProfile.experience;
-		this.first_name = userProfile.first_name;
-		this.middle_name = userProfile.middle_name;
-		this.last_name = userProfile.last_name;
-		this.mobile = userProfile.mobile;
-		this.created_date = userProfile.created_date;
-		this.updated_date = userProfile.updated_date;
-		this.deleted_yn = userProfile.deleted_yn;
+		this.id = id;
+		this.qualification = qualification;
+		this.experience = experience;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.mobile = mobile;
+		this.createdDate = createdDate;
+		this.updatedDate = updatedDate;
+		this.deletedYn = deletedYn;
 	}
-    
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getFirst_name() {
-		return first_name;
+
+	public Qualification getQualification() {
+		return qualification;
 	}
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+
+	public void setQualification(Qualification qualification) {
+		this.qualification = qualification;
 	}
-	public String getMiddle_name() {
-		return middle_name;
+
+	public int getExperience() {
+		return experience;
 	}
-	public void setMiddle_name(String middle_name) {
-		this.middle_name = middle_name;
+
+	public void setExperience(int experience) {
+		this.experience = experience;
 	}
-	public String getLast_name() {
-		return last_name;
+
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
 	public String getMobile() {
 		return mobile;
 	}
+
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public Date getCreated_date() {
-		return created_date;
+
+	public Date getCreatedDate() {
+		return createdDate;
 	}
-	public void setCreated_date(Date created_date) {
-		this.created_date = created_date;
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
-	public Date getUpdated_date() {
-		return updated_date;
+
+	public Date getUpdatedDate() {
+		return updatedDate;
 	}
-	public void setUpdated_date(Date updated_date) {
-		this.updated_date = updated_date;
+
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
 	}
-	public Integer getDeleted_yn() {
-		return deleted_yn;
+
+	public Boolean getDeletedYn() {
+		return deletedYn;
 	}
-	public void setDeleted_yn(Integer deleted_yn) {
-		this.deleted_yn = deleted_yn;
+
+	public void setDeletedYn(Boolean deletedYn) {
+		this.deletedYn = deletedYn;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "UserProfile [id=" + id + ", qualification=" + qualification + ", experience=" + experience
+				+ ", firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName + ", mobile="
+				+ mobile + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + ", deletedYn=" + deletedYn
+				+ "]";
+	}
+
 }

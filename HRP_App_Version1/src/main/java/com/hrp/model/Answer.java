@@ -2,6 +2,7 @@ package com.hrp.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "answers")
 public class Answer {
@@ -21,13 +24,17 @@ public class Answer {
 	@Column(name = "id")
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id", updatable = false, insertable = false)
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	@JsonBackReference
 	private User user;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "question_id", updatable = false, insertable = false)
 	private Questions questions;
+
+	@Column(name = "question_id")
+	private Long questionId;
 
 	@Column(name = "answer")
 	private String answer;
@@ -45,15 +52,25 @@ public class Answer {
 		super();
 	}
 
-	public Answer(Answer answr) {
+	public Answer(Long id, User user, Questions questions, Long questionId, String answer, Date createdDate,
+			Date updatedDate, Boolean deletedYn) {
 		super();
-		this.id = answr.id;
-		this.user = answr.user;
-		this.questions = answr.questions;
-		this.answer = answr.answer;
-		this.createdDate = answr.createdDate;
-		this.updatedDate = answr.updatedDate;
-		this.deletedYn = answr.deletedYn;
+		this.id = id;
+		this.user = user;
+		this.questions = questions;
+		this.questionId = questionId;
+		this.answer = answer;
+		this.createdDate = createdDate;
+		this.updatedDate = updatedDate;
+		this.deletedYn = deletedYn;
+	}
+
+	public Long getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(Long questionId) {
+		this.questionId = questionId;
 	}
 
 	public Long getId() {
